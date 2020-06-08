@@ -10,10 +10,15 @@ stages:
    - job : job1
      steps:
        - bash : echo build first job
+       - bash : java -version
+       - bash : node --version
+       - bash : python --version
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: |
+        **/*.yaml
+        **/*.tf
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- stage: deploy
-  jobs:
-   - job : job2
-     steps:
-       - bash : echo deploy first job
 
