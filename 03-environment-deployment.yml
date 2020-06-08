@@ -23,19 +23,19 @@ stages:
   jobs:
      - deployment: DevDeploy
        environment: dev
-         strategy:
-           runOnce:
-             deploy:
-               steps:
+       strategy:
+         runOnce:
+           deploy:
+              steps:
                - script: echo deploy to dev
 
 - stage: QADeploy
   jobs:
      - deployment: QADeploy
        environment: QA
-         strategy:
-           runOnce:
-             deploy:
+       strategy:
+         runOnce:
+            deploy:
                steps:
                - script: echo deploy to QA
 
