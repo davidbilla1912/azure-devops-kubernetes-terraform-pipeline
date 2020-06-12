@@ -16,3 +16,14 @@ steps:
     backendServiceAWS: 'aws-azure-terraform'
     backendAWSBucketName: 'terraform-aws-eks-sundra-bucket'
     backendAWSKey: 'awsterraform.tfstate'
+
+- task: TerraformTaskV1@0
+  inputs:
+    provider: 'aws'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/aws/kubernetes'
+    environmentServiceNameAWS: 'aws-azure-terraform'
+
+
+
+
